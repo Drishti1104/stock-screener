@@ -398,6 +398,11 @@
                                         <h3 class="card-title">Enter a query here</h3>
                                     </div>
                                     <div class="card-body pb-2">
+                                        <div class="row">
+                                            <div class="col-12" id="alertMsg">
+                                            </div>
+                                        </div>
+                                        
                                         <div class="row ">
                                             <div class="col-lg-7">
                                                 <textarea class="form-control mb-4" id="displayTextarea" placeholder="Query" rows="4"></textarea>
@@ -1180,7 +1185,13 @@
                             } else {
                                 if (parameters.includes(t)) {
                                 } else {
-                                    alert("Invalid parameter name. Please choose it from the given list.")
+                                    $(`#alertMsg`).html(`
+                                    
+                                    <div class="alert alert-danger mb-5" role="alert">
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
+                                        Invalid parameter name. Please choose it from the given list.
+                                    </div>
+                                    `)
                                     return;
                                 }
                             }
@@ -1189,6 +1200,8 @@
                     let string = innerList.join(' ');
                 }
             }
+            
+            $(`#alertMsg`).html(``);
 
 
             data = {
@@ -1206,8 +1219,15 @@
                     r = response;
                     console.log(r);
                     if (r.msgType == "error") {
-                        alert("The query could not be processed. Please add a valid parameter name.")
+                        $(`#alertMsg`).html(`
+                        
+                        <div class="alert alert-danger mb-5" role="alert">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
+                            The query could not be processed. Please add a valid parameter name.
+                        </div>
+                        `)
                     } else {
+                        $(`#alertMsg`).html(``);
                         console.log(r.msg[0])
                         data = JSON.parse(r.msg)
                         console.log(data)
