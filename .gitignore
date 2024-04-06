@@ -1,0 +1,6 @@
+groww/__pycache__
+app/__pycache__
+app/migrations
+env/
+db.sqlite3
+.env
