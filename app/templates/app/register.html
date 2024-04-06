@@ -1,0 +1,236 @@
+{% load static %}
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+
+    <!-- META DATA -->
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Groww Stock Screener Register Page">
+    <meta name="author" content="Django Dynamos">
+    <meta name="keywords" content="groww, ivestment, mutual funds, trading, smart investment, stock screener, investment tools, financial analysis, stock analysis, portfolio management, stock filters, stock research, investment screening, market analysis, stock screening tool, stock scanner, equity research, investment strategies, stock market, stock evaluation, stock selection, trading strategies, investment opportunities">
+
+    <!-- FAVICON -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/images/favicon.ico' %}" />
+
+    <!-- TITLE -->
+    <title>Groww Screener | Register</title>
+
+    <!-- BOOTSTRAP CSS -->
+    <link id="style" href="{% static 'assets/plugins/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
+
+    <!-- STYLE CSS -->
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet" />
+    <link href="{% static 'assets/css/dark-style.css' %}" rel="stylesheet" />
+    <link href="{% static 'assets/css/transparent-style.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/skin-modes.css' %}" rel="stylesheet" />
+
+    <!--- FONT-ICONS CSS -->
+    <link href="{% static 'assets/css/icons.css' %}" rel="stylesheet" />
+
+    <!-- COLOR SKIN CSS -->
+    <link id="theme" rel="stylesheet" type="text/css" media="all" href="{% static 'assets/colors/color1.css' %}" />
+
+</head>
+
+<body class="app sidebar-mini ltr login-img">
+
+    <!-- BACKGROUND-IMAGE -->
+    <div class="">
+
+        <!-- GLOABAL LOADER -->
+        <div id="global-loader">
+            <img src="{% static 'assets/images/loader.svg' %}" class="loader-img" alt="Loader">
+        </div>
+        <!-- /GLOABAL LOADER -->
+
+        <!-- PAGE -->
+        <div class="page">
+            <div class="">
+
+                <div class="container-login100">
+                    <div class="wrap-login100 p-6">
+                        <form class="needs-validation" method="POST" action="{% url 'register' %}" novalidate>
+                            {% csrf_token %}
+                            <span class="login100-form-title">
+									Registration
+							</span>
+                            {% if messages %}
+                                {% for message in messages %}
+                                    {% if message.tags == 'error' %}
+                                        <div class="alert alert-danger" role="alert">
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
+                                            {{ message }}
+                                        </div>
+                                    {% else %}
+                                        <div class="alert alert-success" role="alert">
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
+                                            {{ message }}
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+
+                            <div class="wrap-input100 validate-input input-group">
+                                <a href="javascript: void(0);" class="input-group-text bg-white text-muted">
+                                    <i class="zmdi zmdi-email text-muted" aria-hidden="true"></i>
+                                </a>
+                                <input class="input100 border-start-0 form-control ms-0" id="email" name="email" type="email" placeholder="Email" pattern="\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+" required>
+                                <div class="invalid-feedback">Enter a valid email address</div>
+                            </div>
+
+                            <div class="wrap-input100 validate-input input-group">
+                                <a href="javascript: void(0);" class="input-group-text bg-white text-muted">
+                                    <i class="zmdi zmdi-account text-muted" aria-hidden="true"></i>
+                                </a>
+                                <input class="input100 border-start-0 form-control ms-0" id="name" name="name" type="text" placeholder="Name" pattern="[A-Za-z\s]{3,}" required>
+                                <div class="invalid-feedback">Enter a valid name (no special characters)</div>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" id="phoneNumber" pattern="[0-9]{3,}" class="form-control" placeholder="Phone Number" name="phoneNumber" required>
+                                <div class="invalid-feedback">Enter a valid phone number</div>
+                            </div>
+
+                            <div class="wrap-input100 validate-input input-group" id="Password-toggle1">
+                                <a href="javascript: void(0);" class="input-group-text bg-white text-muted">
+                                    <i class="zmdi zmdi-eye text-muted" aria-hidden="true"></i>
+                                </a>
+                                <input class="input100 border-start-0 form-control ms-0" id="password" name="password" type="password" placeholder="Password" required>
+                                <div class="invalid-feedback">Example invalid input group feedback</div>
+                            </div>
+
+                            <div class="wrap-input100 validate-input input-group" id="Password-toggle">
+                                <a href="javascript: void(0);" class="input-group-text bg-white text-muted">
+                                    <i class="zmdi zmdi-eye text-muted" aria-hidden="true"></i>
+                                </a>
+                                <input class="input100 border-start-0 form-control ms-0" id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm Password" required>
+                                <div class="invalid-feedback">Example invalid input group feedback</div>
+                            </div>
+
+                            <input type="hidden" id="countryCode" name="countryCode" >
+                            <input type="hidden" id="countryName" name="countryName" >
+                            <input type="hidden" id="countryNameCode" name="countryNameCode" >
+
+                            
+
+{% comment %} 
+                            <div class="wrap-input100 validate-input input-group">
+                                <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
+                                    <i class="zmdi zmdi-email" aria-hidden="true"></i>
+                                </a>
+                                <input class="input100 border-start-0 ms-0 form-control" type="email" placeholder="Email">
+                            </div>
+                            <div class="wrap-input100 validate-input input-group" id="Password-toggle">
+                                <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
+                                    <i class="zmdi zmdi-eye" aria-hidden="true"></i>
+                                </a>
+                                <input class="input100 border-start-0 ms-0 form-control" type="password" placeholder="Password">
+                            </div>
+                            <div class="wrap-input100 validate-input input-group" id="Password-toggle1">
+                                <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
+                                    <i class="zmdi zmdi-eye" aria-hidden="true"></i>
+                                </a>
+                                <input class="input100 border-start-0 ms-0 form-control" type="password" placeholder="Confirm Password">
+                            </div>
+                            <label class="custom-control custom-checkbox mt-4">
+									<input type="checkbox" class="custom-control-input">
+									<span class="custom-control-label">Agree the <a href="terms.html">terms and policy</a></span>
+								</label> {% endcomment %}
+                            <div class="container-login100-form-btn">
+                                <button type="submit" class="login100-form-btn btn-primary">
+									Register
+                                </button>
+                            </div>
+                            <div class="text-center pt-3">
+                                <p class="text-dark mb-0">Already have account?<a href="{% url 'login' %}" class="text-primary ms-1">Sign In</a></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- CONTAINER CLOSED -->
+            </div>
+        </div>
+        <!-- END PAGE -->
+
+    </div>
+    <!-- BACKGROUND-IMAGE CLOSED -->
+
+    <!-- JQUERY JS -->
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+
+    <!-- BOOTSTRAP JS -->
+    <script src="{% static 'assets/plugins/bootstrap/js/popper.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+
+    <!-- SHOW PASSWORD JS -->
+    <script src="{% static 'assets/js/show-password.min.js' %}"></script>
+
+    <!-- Perfect SCROLLBAR JS-->
+    <script src="{% static 'assets/plugins/p-scroll/perfect-scrollbar.js' %}"></script>
+
+    <!-- FORMVALIDATION JS -->
+    <script src="{% static 'assets/js/form-validation.js' %}"></script>
+
+    <!-- Color Theme js -->
+    <script src="{% static 'assets/js/themeColors.js' %}"></script>
+
+    <!-- CUSTOM JS -->
+    <script src="{% static 'assets/js/custom.js' %}"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.8/js/intlTelInput-jquery.min.js"></script>
+    {% comment %} <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.8/css/intlTelInput.css" /> {% endcomment %}
+
+    <script>
+        $(document).ready(function() {
+            $("#phoneNumber").intlTelInput({
+                initialCountry: "in",
+                separateDialCode: true,
+                // utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.4/js/utils.js"
+            });
+        })
+    </script>
+
+    <script>
+        (function() {
+            'use strict';
+
+            window.addEventListener('load', function() {
+                var forms = document.getElementsByClassName('needs-validation');
+                var countryCode = document.getElementById('countryCode');
+                var countryName = document.getElementById('countryName');
+                var countryNameCode = document.getElementById('countryNameCode');
+                var cName;
+                
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                    form.addEventListener('submit', function(event) {
+
+                        countryCode.value = document.getElementsByClassName('iti__selected-flag')[0].innerText;
+                        countryNameCode.value = document.getElementsByClassName('iti__selected-flag')[0].childNodes[0].classList[1].split('__')[1];
+                        cName = document.getElementsByClassName('iti__selected-flag')[0].title.split('(');
+                        if (cName.length == 1) {
+                            countryName.value = cName[0].split(':')[0].trim();
+                            console.log(cName[0].split(':')[0].trim())
+                        } else {
+                            countryName.value = cName[0].trim();
+                            console.log(cName[0].trim())
+                        }
+
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+            
+        })();
+    </script>
+
+
+</body>
+
+</html>

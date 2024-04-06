@@ -1,0 +1,864 @@
+{% load static %}
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+
+    <!-- META DATA -->
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Groww Stock Screener Home Page">
+    <meta name="author" content="Django Dynamos">
+    <meta name="keywords" content="groww, ivestment, mutual funds, trading, smart investment, stock screener, investment tools, financial analysis, stock analysis, portfolio management, stock filters, stock research, investment screening, market analysis, stock screening tool, stock scanner, equity research, investment strategies, stock market, stock evaluation, stock selection, trading strategies, investment opportunities">
+
+    <!-- FAVICON -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/images/favicon.ico' %}" />
+
+    <!-- TITLE -->
+    <title>Groww Screener | Home</title>
+
+    <!-- BOOTSTRAP CSS -->
+    <link id="style" href="{% static 'assets/plugins/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
+
+    <!-- STYLE CSS -->
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet" />
+    <link href="{% static 'assets/css/dark-style.css' %}" rel="stylesheet" />
+
+    <!--- FONT-ICONS CSS -->
+    <link href="{% static 'assets/css/icons.css' %}" rel="stylesheet" />
+
+    <!-- COLOR SKIN CSS -->
+    <link id="theme" rel="stylesheet" type="text/css" media="all" href="{% static 'assets/colors/color1.css' %}" />
+
+</head>
+
+<body class="app ltr landing-page horizontal">
+
+    <!-- GLOBAL-LOADER -->
+    <div id="global-loader">
+        <img src="{% static 'assets/images/loader.svg' %}" class="loader-img" alt="Loader">
+    </div>
+    <!-- /GLOBAL-LOADER -->
+
+    <!-- PAGE -->
+    <div class="page">
+        <div class="page-main">
+
+            <!-- app-Header -->
+            <div class="hor-header header">
+                <div class="container main-container">
+                    <div class="d-flex">
+                        <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-bs-toggle="sidebar"
+                            href="javascript:void(0)"></a>
+                        <!-- sidebar-toggle-->
+                        <a class="logo-horizontal " href="index.html">
+                            <img src="{% static 'assets/images/logo1.png' %}" class="header-brand-img desktop-logo" alt="logo">
+                            <img style="width: 30%;" src="{% static 'assets/images/logo1.png' %}" class="header-brand-img light-logo1"
+                                alt="logo">
+                        </a>
+                        <!-- LOGO -->
+                        <div class="d-flex order-lg-2 ms-auto header-right-icons">
+                            <button class="navbar-toggler navresponsive-toggler d-lg-none ms-auto" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-4"
+                                aria-controls="navbarSupportedContent-4" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon fe fe-more-vertical"></span>
+                            </button>
+                            <div class="navbar navbar-collapse responsive-navbar p-0">
+                                <div class="collapse navbar-collapse bg-white px-0" id="navbarSupportedContent-4">
+                                    <!-- SEARCH -->
+                                    <div class="header-nav-right p-5">
+                                        <a href="{% url 'register' %}" class="btn ripple btn-min w-sm btn-outline-primary me-2 my-auto" >New User </a>
+                                        <a href="{% url 'login' %}" class="btn ripple btn-min w-sm btn-primary me-2 my-auto" >Login </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /app-Header -->
+
+            <div class="landing-top-header overflow-hidden">
+                <div class="top sticky overflow-hidden">
+                    <!--APP-SIDEBAR-->
+                    <div class="app-sidebar__overlay" data-bs-toggle="sidebar"></div>
+                    <div class="app-sidebar bg-transparent horizontal-main">
+                        <div class="container">
+                            <div class="row">
+                                <div class="main-sidemenu navbar px-0">
+                                    <a class="navbar-brand ps-0 d-none d-lg-block" href="javascript: void(0);">
+                                        <img alt="" class="logo-2" src="{% static 'assets/images/logo.jpg' %}">
+                                        <img src="{% static 'assets/images/logo.jpg' %}" class="logo-3" alt="logo">
+                                    </a>
+                                    <ul class="side-menu">
+                                        <li class="slide">
+                                            <a class="side-menu__item active" data-bs-toggle="slide" href="#home"><span
+                                                    class="side-menu__label">Home</span></a>
+                                        </li>
+                                        <li class="slide">
+                                            <a class="side-menu__item" data-bs-toggle="slide" href="#About"><span
+                                                    class="side-menu__label">About</span></a>
+                                        </li>
+                                        <li class="slide">
+                                            <a class="side-menu__item" data-bs-toggle="slide" href="#Pricing"><span
+                                                    class="side-menu__label">Pricing</span></a>
+                                        </li>
+                                        <li class="slide">
+                                            <a class="side-menu__item" data-bs-toggle="slide" href="#Faqs"><span
+                                                    class="side-menu__label">Faq's</span></a>
+                                        </li>
+                                        <li class="slide">
+                                            <a class="side-menu__item" data-bs-toggle="slide" href="#Contact"><span
+                                                    class="side-menu__label">Contact</span></a>
+                                        </li>
+                                    </ul>
+                                    <div class="header-nav-right d-none d-lg-flex">
+                                        <a href="{% url 'register' %}" class="btn ripple btn-min w-sm btn-outline-primary me-2 my-auto" >New User </a>
+                                        <a href="{% url 'login' %}" class="btn ripple btn-min w-sm btn-primary me-2 my-auto" >Login </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/APP-SIDEBAR-->
+                </div>
+                <div class="demo-screen-headline main-demo main-demo-1 spacing-top overflow-hidden reveal" id="home">
+                    <div class="container px-sm-0">
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-6 mb-5 pb-5 animation-zidex pos-relative">
+                                <h4 class="fw-semibold mt-7">Manage Your Portfolio</h4>
+                                <h1 class="text-start fw-bold">Discover Your Next Move: <span class="text-primary">Groww's Stock Screener</span> Puts You in Control</h1>
+                                <h6 class="pb-3">
+                                    Groww's Stock Screener is a powerful tool designed to help investors filter stocks based on customizable criteria such as market cap, sector, and financial ratios. With intuitive interface and comprehensive data, it empowers users to make informed investment decisions tailored to their goals.
+                                </h6>
+
+                                <a href="{% url 'simple-filter' %}"
+                                    target="_blank" class="btn ripple btn-min w-lg mb-3 me-2 btn-primary"><i
+                                        class="fe fe-play me-2"></i> Get Started with Simple Filters
+                                </a>
+                                <a href="{% url 'advance-filter' %}"
+                                    class="btn ripple btn-min w-lg btn-outline-primary mb-3 me-2" target="_blank"><i
+                                        class="fe fe-eye me-2"></i>Advance Filters
+                                </a>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 my-auto">
+                                <img src="{% static 'assets/images/stocks-vector.jpg' %}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--app-content open-->
+            <div class="main-content mt-0">
+                <div class="side-app">
+
+                    <!-- CONTAINER -->
+                    <div class="main-container">
+                        <div class="">
+
+                            <!-- Statistics OPEN -->
+                            <div class="section pb-0">
+                                <div class="container">
+                                    <div class="row">
+                                        <h4 class="text-center fw-semibold">Statistics</h4>
+                                        <span class="landing-title"></span>
+                                        <h2 class="text-center fw-semibold mb-7">Groww's Stock Screener Statistics.</h2>
+                                    </div>
+                                    <div class="row text-center services-statistics landing-statistics">
+                                        <div class="col-xl-3 col-md-6 col-lg-6">
+                                            <div class="card">
+                                                <div class="card-body bg-primary-transparent">
+                                                    <div class="counter-status">
+                                                        <div
+                                                            class="counter-icon bg-primary-transparent box-shadow-primary">
+                                                            <i class="fe fe-layers text-primary fs-23"></i>
+                                                        </div>
+                                                        <div class="test-body text-center">
+                                                            <h1 class=" mb-0">
+                                                                <span class="counter fw-semibold counter ">100</span>+
+                                                            </h1>
+                                                            <div class="counter-text">
+                                                                <h5 class="font-weight-normal mb-0 ">Tickers</h5>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-md-6 col-lg-6">
+                                            <div class="card">
+                                                <div class="card-body bg-secondary-transparent">
+                                                    <div class="counter-status">
+                                                        <div
+                                                            class="counter-icon bg-secondary-transparent box-shadow-secondary">
+                                                            <i class="fe fe-wind text-secondary fs-23"></i>
+                                                        </div>
+                                                        <div class="text-body text-center">
+                                                            <h1 class=" mb-0">
+                                                                <span class="counter fw-semibold counter ">20</span>+
+                                                            </h1>
+                                                            <div class="counter-text">
+                                                                <h5 class="font-weight-normal mb-0 ">Fundamental Indicators
+                                                                </h5>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-md-6 col-lg-6">
+                                            <div class="card">
+                                                <div class="card-body bg-success-transparent">
+                                                    <div class="counter-status">
+                                                        <div
+                                                            class="counter-icon bg-success-transparent box-shadow-success">
+                                                            <i class="fe fe-file-text text-success fs-23"></i>
+                                                        </div>
+                                                        <div class="text-body text-center">
+                                                            <h1 class=" mb-0">
+                                                                <span class="counter fw-semibold counter ">9</span>+
+                                                            </h1>
+                                                            <div class="counter-text">
+                                                                <h5 class="font-weight-normal mb-0 ">Technical Indicators</h5>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-md-6 col-lg-6">
+                                            <div class="card">
+                                                <div class="card-body bg-danger-transparent">
+                                                    <div class="counter-status">
+                                                        <div
+                                                            class="counter-icon bg-danger-transparent box-shadow-danger">
+                                                            <i class="fe fe-grid text-danger fs-23"></i>
+                                                        </div>
+                                                        <div class="text-body text-center">
+                                                            <h1 class=" mb-0">
+                                                                <span class="counter fw-semibold counter ">30</span>+
+                                                            </h1>
+                                                            <div class="counter-text">
+                                                                <h5 class="font-weight-normal mb-0 ">Industries
+                                                                </h5>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ROW-1 CLOSED -->
+
+                            {% comment %} Groww is India's growing financial services platform where users can find their investment solutions pertaining to mutual funds, stocks, US Stocks, ETFs, IPO, and F&Os, to invest their money without hassles. {% endcomment %}
+                            <!-- About OPEN -->
+                            <div class="section bg-landing pb-0 bg-image-style" id="About Groww">
+                                <div class="container">
+                                    <div class="row">
+                                        <h4 class="text-center fw-semibold">We Stand For</h4>
+                                        <span class="landing-title"></span>
+                                        <div class="text-center">
+                                            <h2 class="text-center fw-semibold">Our mission is to make work meaningful.</h2>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="card bg-transparent">
+                                                <div class="card-body text-dark">
+                                                    <div class="statistics-info">
+                                                        <div class="row">
+                                                            <div class="col-xl-6 col-lg-6 ps-0">
+                                                                <div class="text-center reveal revealleft mb-3">
+                                                                    <img src="{% static 'assets/images/mission.jpg' %}"
+                                                                        alt="" class="br-5">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xl-6 col-lg-6 pe-0 my-auto">
+
+                                                                <div class="ps-5 reveal revealright">
+                                                                    <div class="d-flex">
+                                                                        <div class="ms-5 mb-4">
+                                                                            <p> Groww is India's growing financial services platform where users can find their investment solutions pertaining to mutual funds, stocks, US Stocks, ETFs, IPO, and F&Os, to invest their money without hassles.
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <br>
+                                                                    <div class="d-flex">
+                                                                        <span><svg style="width:20px;height:20px"
+                                                                                viewBox="0 0 24 24">
+                                                                                <path fill="#6c5ffc"
+                                                                                    d="M23,12L20.56,9.22L20.9,5.54L17.29,4.72L15.4,1.54L12,3L8.6,1.54L6.71,4.72L3.1,5.53L3.44,9.21L1,12L3.44,14.78L3.1,18.47L6.71,19.29L8.6,22.47L12,21L15.4,22.46L17.29,19.28L20.9,18.46L20.56,14.78L23,12M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z" />
+                                                                            </svg></span>
+                                                                        <div class="ms-5 mb-4">
+                                                                            <h5 class="fw-bold">Customer's First
+                                                                            </h5>
+                                                                            <p>Every decision we make is centered around 
+                                                                                our customer's needs and conveniences.</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="d-flex">
+                                                                        <span><svg style="width:20px;height:20px"
+                                                                                viewBox="0 0 24 24">
+                                                                                <path fill="#6c5ffc"
+                                                                                    d="M23,12L20.56,9.22L20.9,5.54L17.29,4.72L15.4,1.54L12,3L8.6,1.54L6.71,4.72L3.1,5.53L3.44,9.21L1,12L3.44,14.78L3.1,18.47L6.71,19.29L8.6,22.47L12,21L15.4,22.46L17.29,19.28L20.9,18.46L20.56,14.78L23,12M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z" />
+                                                                            </svg></span>
+                                                                        <div class="ms-5 mb-4">
+                                                                            <h5 class="fw-bold">Simple is Beautiful
+                                                                            </h5>
+                                                                            <p>Be it our app, website, or services - we 
+                                                                                strive to keep making things simpler.</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="d-flex">
+                                                                        <span><svg style="width:20px;height:20px"
+                                                                                viewBox="0 0 24 24">
+                                                                                <path fill="#6c5ffc"
+                                                                                    d="M23,12L20.56,9.22L20.9,5.54L17.29,4.72L15.4,1.54L12,3L8.6,1.54L6.71,4.72L3.1,5.53L3.44,9.21L1,12L3.44,14.78L3.1,18.47L6.71,19.29L8.6,22.47L12,21L15.4,22.46L17.29,19.28L20.9,18.46L20.56,14.78L23,12M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z" />
+                                                                            </svg></span>
+                                                                        <div class="ms-5 mb-4">
+                                                                            <h5 class="fw-bold">Honesty & Integrity</h5>
+                                                                            <p>
+                                                                                We want our customers to be completely aware 
+                                                                                of everything to do with their investments. 
+                                                                                Whatever we do is always crystal clear. </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ROW-3 CLOSED -->
+
+                            <!-- Pricing OPEN -->
+                            <div class="bg-landing section bg-image-style" id="Pricing">
+                                <div class="container">
+                                    <div class="row">
+                                        <h4 class="text-center fw-semibold">Choose a plan </h4>
+                                        <span class="landing-title"></span>
+                                        <h2 class="text-center fw-semibold">Find the <span class="text-primary">Perfect
+                                                Plan</span> for you.</h2>
+                                        <div class="pricing-tabs">
+                                            {% comment %} <div class="pri-tabs-heading text-center">
+                                                <ul class="nav nav-price">
+                                                    <li><a data-bs-toggle="tab" href="#month">Monthly</a></li>
+                                                    <li><a class="active show" data-bs-toggle="tab"
+                                                            href="#annualyear">Annual</a></li>
+                                                </ul>
+                                            </div> {% endcomment %} <br>
+                                            <div class="tab-content">
+                                                <div class="tab-pane active show" id="month">
+                                                    <div class="row d-flex align-items-center justify-content-center">
+                                                        <div class="col-lg-4 col-xl-4 col-md-8 col-sm-12">
+                                                            <div class="card p-3 pricing-card">
+                                                                <div class="card-header d-block text-justified pt-2">
+                                                                    <p class="fs-18 fw-semibold mb-1">Basic</p>
+                                                                    <p class="text-justify fw-semibold mb-1"> <span
+                                                                            class="fs-30 me-2">&#8377;</span><span
+                                                                            class="fs-30 me-1">39</span><span
+                                                                            class="fs-25"><span
+                                                                                class="op-0-5 text-muted text-20">/</span>
+                                                                            month</span></p>
+                                                                    <p class="fs-13 mb-1">Lorem ipsum dolor sit amet
+                                                                        consectetur adipisicing elit. Iure quos debitis
+                                                                        aliquam .</p>
+                                                                    <p class="fs-13 mb-1 text-secondary">Billed monthly
+                                                                        on regular basis!</p>
+                                                                </div>
+                                                                <div class="card-body pt-2">
+                                                                    <ul class="text-justify pricing-body ps-0">
+                                                                        <li><i
+                                                                                class="mdi mdi-checkbox-marked-circle-outline p-2 fs-16 text-secondary"></i><strong>
+                                                                                2 Free</strong> Domain Name</li>
+                                                                        <li><i
+                                                                                class="mdi mdi-checkbox-marked-circle-outline p-2 fs-16 text-secondary"></i>
+                                                                            <strong>3 </strong> One-Click Apps
+                                                                        </li>
+                                                                        <li class="text-muted"><i
+                                                                                class="mdi mdi-close-circle-outline p-2 fs-16 text-gray"></i><strong>
+                                                                                1 </strong> Databases</li>
+                                                                        <li class="text-muted"><i
+                                                                                class="mdi mdi-close-circle-outline p-2 fs-16 text-gray"></i><strong>
+                                                                                Unlimited </strong> Cloud Storage</li>
+                                                                        <li class="text-muted"><i
+                                                                                class="mdi mdi-close-circle-outline p-2 fs-16 text-gray"></i><strong>
+                                                                                Money </strong> BackGuarantee</li>
+                                                                        <li class="text-muted"><i
+                                                                                class="mdi mdi-close-circle-outline p-2 fs-16 text-gray"></i><strong>
+                                                                                24/7</strong> support</li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="card-footer text-center border-top-0 pt-1">
+                                                                    <button
+                                                                        class="btn btn-lg btn-outline-secondary btn-block">
+                                                                        <span class="ms-4 me-4">Select</span>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-xl-4 col-md-8 col-sm-12">
+                                                            <div class="card p-3 border-primary pricing-card advanced">
+                                                                <div class="card-header d-block text-justified pt-2">
+                                                                    <p class="fs-18 fw-semibold mb-1 pe-0">Advanced<span
+                                                                            class="tag bg-primary text-white float-end">Limited
+                                                                            Deal</span></p>
+                                                                    <p class="text-justify fw-semibold mb-1"> <span
+                                                                            class="fs-30 me-2">&#8377;</span><span
+                                                                            class="fs-30 me-1">199</span><span
+                                                                            class="fs-25"><span
+                                                                                class="op-0-5 text-muted text-20">/</span>
+                                                                            month</span></p>
+                                                                    <p class="fs-13 mb-2">Lorem ipsum dolor sit amet
+                                                                        consectetur adipisicing elit. Iure quos debitis
+                                                                        aliquam .</p>
+                                                                    <p class="fs-13 mb-1 text-primary">Billed monthly on
+                                                                        regular basis!</p>
+                                                                </div>
+                                                                <div class="card-body pt-2">
+                                                                    <ul class="text-justify pricing-body ps-0">
+                                                                        <li><i
+                                                                                class="mdi mdi-checkbox-marked-circle-outline text-primary p-2 fs-16"></i>
+                                                                            <strong> 5 Free</strong> Domain Name
+                                                                        </li>
+                                                                        <li><i
+                                                                                class="mdi mdi-checkbox-marked-circle-outline text-primary p-2 fs-16"></i><strong>5
+                                                                            </strong> One-Click Apps</li>
+                                                                        <li><i
+                                                                                class="mdi mdi-checkbox-marked-circle-outline text-primary p-2 fs-16"></i><strong>
+                                                                                3 </strong> Databases</li>
+                                                                        <li><i
+                                                                                class="mdi mdi-checkbox-marked-circle-outline text-primary p-2 fs-16"></i><strong>
+                                                                                Unlimited </strong> Cloud Storage</li>
+                                                                        <li><i
+                                                                                class="mdi mdi-checkbox-marked-circle-outline text-primary p-2 fs-16"></i><strong>
+                                                                                Money </strong> BackGuarantee</li>
+                                                                        <li class="mb-6"><i
+                                                                                class="mdi mdi-checkbox-marked-circle-outline text-primary p-2 fs-16"></i><strong>
+                                                                                24/7</strong> support</li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="card-footer text-center border-top-0 pt-1">
+                                                                    <button
+                                                                        class="btn btn-lg btn-primary-gradient text-white btn-block">
+                                                                        <span class="ms-4 me-4">Select</span>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-xl-4 col-md-8 col-sm-12">
+                                                            <div class="card p-3 pricing-card">
+                                                                <div class="card-header d-block text-justified pt-2">
+                                                                    <p class="fs-18 fw-semibold mb-1">Regular</p>
+                                                                    <p class="text-justify fw-semibold mb-1"> <span
+                                                                            class="fs-30 me-2">&#8377;</span><span
+                                                                            class="fs-30 me-1">69</span><span
+                                                                            class="fs-25"><span
+                                                                                class="op-0-5 text-muted text-20">/</span>
+                                                                            month</span></p>
+                                                                    <p class="fs-13 mb-1">Lorem ipsum dolor sit amet
+                                                                        consectetur adipisicing elit. Iure quos debitis
+                                                                        aliquam .</p>
+                                                                    <p class="fs-13 mb-1  text-danger">Billed monthly on
+                                                                        regular basis!</p>
+                                                                </div>
+                                                                <div class="card-body pt-2">
+                                                                    <ul class="text-justify pricing-body ps-0">
+                                                                        <li><i
+                                                                                class="mdi mdi-checkbox-marked-circle-outline text-danger p-2 fs-16"></i><strong>
+                                                                                1 Free</strong> Domain Name</li>
+                                                                        <li><i
+                                                                                class="mdi mdi-checkbox-marked-circle-outline text-danger p-2 fs-16"></i><strong>4
+                                                                            </strong> One-Click Apps</li>
+                                                                        <li><i
+                                                                                class="mdi mdi-checkbox-marked-circle-outline text-danger p-2 fs-16"></i><strong>
+                                                                                2 </strong> Databases</li>
+                                                                        <li class="text-muted"><i
+                                                                                class="mdi mdi-close-circle-outline text-gray p-2 fs-16"></i><strong>
+                                                                                Unlimited </strong> Cloud Storage</li>
+                                                                        <li class="text-muted"><i
+                                                                                class="mdi mdi-close-circle-outline text-gray p-2 fs-16"></i><strong>
+                                                                                Money </strong> BackGuarantee</li>
+                                                                        <li class="text-muted"><i
+                                                                                class="mdi mdi-close-circle-outline text-gray p-2 fs-16"></i><strong>
+                                                                                24/7</strong> support</li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="card-footer text-center border-top-0 pt-1">
+                                                                    <button
+                                                                        class="btn btn-lg btn-outline-danger btn-block">
+                                                                        <span class="ms-4 me-4">Select</span>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ROW-6 CLOSED -->
+
+                            <!-- FAQ's OPEN -->
+                            <div class="section" id="Faqs" style="overflow: hidden;">
+                                <div class="container">
+                                    <div class="row">
+                                        <h4 class="text-center fw-semibold">FAQ'S ?</h4>
+                                        <span class="landing-title"></span>
+                                        <h2 class="text-center fw-semibold">We are here to help you</h2>
+                                        <div class="row justify-content-center">
+                                            <p class="col-xl-9 wow fadeInUp text-default sub-text mb-7"
+                                                data-wow-delay="0s">
+                                                The Sash admin template is one of the modern dashboard templates.
+                                                It is also a premium admin dashboard with high-end features, where users
+                                                can easily customize
+                                                or change their projects according to their choice.
+                                            </p>
+                                        </div>
+                                        <section class="sptb demo-screen-demo" id="faqs">
+                                            <div class="row align-items-center">
+                                                <div class="col-md-12 col-lg-6">
+                                                    <div class="col-md-12 grid-item  px-0">
+                                                        <div
+                                                            class="card card-collapsed bg-primary-transparent p-0 reveal">
+                                                            <div class="card-header grid-link"
+                                                                data-bs-toggle="card-collapse">
+                                                                <a href="#"
+                                                                    class="card-options-collapse h5 fw-bold card-title mb-0"><span
+                                                                        class="me-3 fs-18 fw-bold text-primary">01.</span>Can
+                                                                    i get a free trial before purchase ?</a>
+                                                            </div>
+                                                            <div class="card-body pt-0">
+                                                                <p>
+                                                                    Lorem ipsum dolor sit amet consectetur adipisicing
+                                                                    elit. Iure quos debitis aliquam .
+                                                                </p>
+                                                                <p class="mt-2 mb-3">
+                                                                    <span class="fw-bold">Note: </span>Please Refer
+                                                                    support section for more information.
+                                                                </p>
+                                                                <a href="javascript:void(0)"
+                                                                    class="btn btn-outline-primary tx-13">Click here</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 grid-item  px-0">
+                                                        <div
+                                                            class="card card-collapsed bg-success-transparent p-0 reveal">
+                                                            <div class="card-header grid-link"
+                                                                data-bs-toggle="card-collapse">
+                                                                <a href="#"
+                                                                    class="card-options-collapse  h5 fw-bold card-title mb-0"><span
+                                                                        class="me-3 fs-18 fw-bold text-success">02.</span>What
+                                                                    type of files i will get after purchase ?</a>
+                                                            </div>
+                                                            <div class="card-body pt-0">
+                                                                <p>
+                                                                    Lorem ipsum dolor sit amet consectetur adipisicing
+                                                                    elit. Iure quos debitis aliquam.
+                                                                </p>
+                                                                <p class="mt-2 mb-3">
+                                                                    <span class="fw-bold">Note: </span>Please Refer
+                                                                    support section for more information.
+                                                                </p>
+                                                                <a href="javascript:void(0)"
+                                                                    class="btn btn-outline-success tx-13">Click here</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 grid-item  px-0">
+                                                        <div
+                                                            class="card card-collapsed bg-secondary-transparent p-0 reveal">
+                                                            <div class="card-header grid-link"
+                                                                data-bs-toggle="card-collapse">
+                                                                <a href="#"
+                                                                    class="card-options-collapse  h5 fw-bold card-title mb-0"><span
+                                                                        class="me-3 fs-18 fw-bold text-secondary">03.</span>What
+                                                                    is a single Application</a>
+                                                            </div>
+                                                            <div class="card-body pt-0">
+                                                                <p>
+                                                                    Lorem ipsum dolor sit amet consectetur adipisicing
+                                                                    elit. Iure quos debitis aliquam.
+                                                                </p>
+                                                                <p class="mt-2 mb-3">
+                                                                    <span class="fw-bold">Note: </span>Please Refer
+                                                                    support section for more information.
+                                                                </p>
+                                                                <a href="javascript:void(0)"
+                                                                    class="btn btn-outline-secondary tx-13">Click
+                                                                    here</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 grid-item  px-0">
+                                                        <div
+                                                            class="card card-collapsed bg-warning-transparent p-0 reveal">
+                                                            <div class="card-header grid-link"
+                                                                data-bs-toggle="card-collapse">
+                                                                <a href="#"
+                                                                    class="card-options-collapse  h5 fw-bold card-title mb-0"><span
+                                                                        class="me-3 fs-18 fw-bold text-warning">04.</span>How
+                                                                    to get future updates ?</a>
+                                                            </div>
+                                                            <div class="card-body pt-0">
+                                                                <p>
+                                                                    Lorem ipsum dolor sit amet consectetur adipisicing
+                                                                    elit. Iure quos debitis aliquam.
+                                                                </p>
+                                                                <p class="mt-2 mb-3">
+                                                                    <span class="fw-bold">Note: </span>Please Refer
+                                                                    support section for more information.
+                                                                </p>
+                                                                <a href="javascript:void(0)"
+                                                                    class="btn btn-outline-warning tx-13">Click here</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 grid-item  px-0">
+                                                        <div
+                                                            class="card card-collapsed bg-danger-transparent p-0 reveal">
+                                                            <div class="card-header grid-link"
+                                                                data-bs-toggle="card-collapse">
+                                                                <a href="#"
+                                                                    class="card-options-collapse  h5 fw-bold card-title mb-0"><span
+                                                                        class="me-3 fs-18 fw-bold text-danger">05.</span>Do
+                                                                    you provide support ?</a>
+                                                            </div>
+                                                            <div class="card-body pt-0">
+                                                                <p>
+                                                                    Lorem ipsum dolor sit amet consectetur adipisicing
+                                                                    elit. Iure quos debitis aliquam.
+                                                                </p>
+                                                                <p class="mt-2 mb-3">
+                                                                    <span class="fw-bold">Note: </span>Please Refer
+                                                                    support section for more information.
+                                                                </p>
+                                                                <a href="javascript:void(0)"
+                                                                    class="btn btn-outline-danger tx-13">Click here</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 col-lg-6 reveal revealright">
+                                                    <img src="{% static 'assets/images/faq.jpg' %}"
+                                                        alt="">
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ROW-7 CLOSED -->
+
+                            <!-- Contact Us OPEN -->
+                            <div class="bg-image-landing section pb-0" id="Contact">
+                                <div class="container">
+                                    <div class="">
+                                        <div class="card card-shadow reveal">
+                                            <h4 class="text-center fw-semibold mt-7">Contact</h4>
+                                            <span class="landing-title"></span>
+                                            <h2 class="text-center fw-semibold mb-0 px-2">Get in Touch with <span
+                                                    class="text-primary">US.</span></h2>
+                                            <div class="card-body p-5 pb-6 text-dark">
+                                                <div class="statistics-info p-4">
+                                                    <div class="row justify-content-center">
+                                                        <div class="col-lg-9">
+                                                            <div class="mt-3">
+                                                                <div class="text-dark">
+                                                                    <div class="services-statistics reveal my-5">
+                                                                        <div class="row text-center">
+                                                                            <div class="col-xl-3 col-md-6 col-lg-6">
+                                                                                <div class="card">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="counter-status">
+                                                                                            <div
+                                                                                                class="counter-icon bg-primary-transparent box-shadow-primary">
+                                                                                                <i
+                                                                                                    class="fe fe-map-pin text-primary fs-23"></i>
+                                                                                            </div>
+                                                                                            <h4
+                                                                                                class="mb-2 fw-semibold">
+                                                                                                Main Branch</h4>
+                                                                                            <p>San Francisco, CA </p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-xl-3 col-md-6 col-lg-6">
+                                                                                <div class="card">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="counter-status">
+                                                                                            <div
+                                                                                                class="counter-icon bg-secondary-transparent box-shadow-secondary">
+                                                                                                <i
+                                                                                                    class="fe fe-headphones text-secondary fs-23"></i>
+                                                                                            </div>
+                                                                                            <h4
+                                                                                                class="mb-2 fw-semibold">
+                                                                                                Phone & Email</h4>
+                                                                                            <p class="mb-0">+125 254
+                                                                                                3562 </p>
+                                                                                            <p>georgeme@abc.com</p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-xl-3 col-md-6 col-lg-6">
+                                                                                <div class="card">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="counter-statuss">
+                                                                                            <div
+                                                                                                class="counter-icon bg-success-transparent box-shadow-success">
+                                                                                                <i
+                                                                                                    class="fe fe-mail text-success fs-23"></i>
+                                                                                            </div>
+                                                                                            <h4
+                                                                                                class="mb-2 fw-semibold">
+                                                                                                Contact</h4>
+                                                                                            <p class="mb-0">
+                                                                                                www.example.com</p>
+                                                                                            <p>example@dev.com</p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-xl-3 col-md-6 col-lg-6">
+                                                                                <div class="card">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="counter-status">
+                                                                                            <div
+                                                                                                class="counter-icon bg-danger-transparent box-shadow-danger">
+                                                                                                <i
+                                                                                                    class="fe fe-airplay text-danger fs-23"></i>
+                                                                                            </div>
+                                                                                            <h4
+                                                                                                class="mb-2 fw-semibold">
+                                                                                                Working Hours</h4>
+                                                                                            <p class="mb-0">Monday -
+                                                                                                Friday: 9am - 6pm</p>
+                                                                                            <p>Satday - Sunday: Holiday
+                                                                                            </p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-9">
+                                                            <div class="">
+                                                                <form class="form-horizontal reveal revealrotate m-t-20"
+                                                                    action="index.html">
+                                                                    <div class="form-group">
+                                                                        <div class="col-xs-12">
+                                                                            <input class="form-control" type="text"
+                                                                                required="" placeholder="Username*">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <div class="col-xs-12">
+                                                                            <input class="form-control" type="email"
+                                                                                required="" placeholder="Email*">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <div class="col-xs-12">
+                                                                            <textarea class="form-control"
+                                                                                rows="5">Your Comment*</textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="">
+                                                                        <a href="javascript:void(0)"
+                                                                            class="btn btn-primary btn-rounded  waves-effect waves-light">Submit</a>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ROW-10 CLOSED -->
+
+                        </div>
+                    </div>
+                    <!-- CONTAINER CLOSED-->
+                </div>
+            </div>
+            <!--app-content closed-->
+        </div>
+
+        <!-- FOOTER OPEN -->
+        <div class="demo-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-body">
+                            <footer class="main-footer px-0 pb-0 text-center">
+                                <div class="row ">
+                                    <div class="col-md-12 col-sm-12">
+                                        Copyright © <span id="year"></span> <a href="https://groww.in/">Groww</a>.
+                                        Designed with <span class="fa fa-heart text-danger"></span> by <a
+                                            href="javascript:void(0)"> Django Dynamos </a> All rights reserved.
+                                    </div>
+                                </div>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- FOOTER CLOSED -->
+    </div>
+
+    <!-- BACK-TO-TOP -->
+    <a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+    <!-- JQUERY JS -->
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+
+    <!-- BOOTSTRAP JS -->
+    <script src="{% static 'assets/plugins/bootstrap/js/popper.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+
+    <!-- COUNTERS JS-->
+    <script src="{% static 'assets/plugins/counters/counterup.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/counters/waypoints.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/counters/counters-1.js' %}"></script>
+
+    <!-- Perfect SCROLLBAR JS-->
+    <script src="{% static 'assets/plugins/owl-carousel/owl.carousel.js' %}"></script>
+    <script src="{% static 'assets/plugins/company-slider/slider.js' %}"></script>
+
+    <!-- Star Rating Js-->
+    <script src="{% static 'assets/plugins/rating/jquery-rate-picker.js' %}"></script>
+    <script src="{% static 'assets/plugins/rating/rating-picker.js' %}"></script>
+
+    <!-- Star Rating-1 Js-->
+    <script src="{% static 'assets/plugins/ratings-2/jquery.star-rating.js' %}"></script>
+    <script src="{% static 'assets/plugins/ratings-2/star-rating.js' %}"></script>
+
+    <!-- Sticky js -->
+    <script src="{% static 'assets/js/sticky.js' %}"></script>
+
+    <!-- CUSTOM JS -->
+    <script src="{% static 'assets/js/landing.js' %}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,1329 @@
+{% load static %}
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+
+    <!-- META DATA -->
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Groww Stock Screener Home Page">
+    <meta name="author" content="Django Dynamos">
+    <meta name="keywords" content="groww, ivestment, mutual funds, trading, smart investment, stock screener, investment tools, financial analysis, stock analysis, portfolio management, stock filters, stock research, investment screening, market analysis, stock screening tool, stock scanner, equity research, investment strategies, stock market, stock evaluation, stock selection, trading strategies, investment opportunities">
+
+    <!-- FAVICON -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/images/favicon.ico' %}" />
+
+    <!-- TITLE -->
+    <title>Groww Screener | Advance Filter</title>
+
+
+    <!-- BOOTSTRAP CSS -->
+    <link id="style" href='{% static "assets/plugins/bootstrap/css/bootstrap.min.css" %}'  rel="stylesheet" />
+
+    <!-- STYLE CSS -->
+    <link href='{% static "assets/css/style.css" %}' rel="stylesheet" />
+    <link href='{% static "assets/css/dark-style.css" %}' rel="stylesheet" />
+    <link href='{% static "assets/css/transparent-style.css" %}' rel="stylesheet">
+    <link href='{% static "assets/css/skin-modes.css" %}' rel="stylesheet" />
+
+    <!--- FONT-ICONS CSS -->
+    <link href='{% static "assets/css/icons.css" %}' rel="stylesheet" />
+
+    <!-- COLOR SKIN CSS -->
+    <link id="theme" rel="stylesheet" type="text/css" media="all" href='{% static "assets/colors/color1.css" %}' />
+
+    <!-- INTERNAL Switcher css -->
+    <link href='{% static "assets/switcher/css/switcher.css" %}' rel="stylesheet" />
+    <link href='{% static "assets/switcher/demo.css" %}' rel="stylesheet" />
+
+    <!-- Styles -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" %}' /> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css"/>
+    <!-- Or for RTL support -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.rtl.min.css"/>
+
+
+
+</head>
+
+<body class="app sidebar-mini ltr light-mode">
+
+    <!-- Switcher -->
+    <div class="switcher-wrapper">
+        <div class="demo_changer">
+            <div class="form_holder sidebar-right1">
+                <div class="row">
+                    <div class="predefined_styles">
+                        <div class="swichermainleft text-center">
+                            <div class="p-3 d-grid gap-2">
+                                <a href="../../index.html" class="btn ripple btn-primary mt-0">View Demo</a>
+                                <a href="https://themeforest.net/item/sash-bootstrap-5-admin-dashboard-template/35183671" class="btn ripple btn-secondary">Buy Now</a>
+                                <a href="https://themeforest.net/user/spruko/portfolio" class="btn ripple btn-pink">Our Portfolio</a>
+                            </div>
+                        </div>
+                        <div class="swichermainleft">
+                            <h4>Navigation Style</h4>
+                            <div class="skin-body">
+                                <div class="switch_section">
+                                    <div class="switch-toggle d-flex">
+                                        <span class="me-auto">Vertical Menu</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch15" id="myonoffswitch34" class="onoffswitch2-checkbox" checked>
+                                            <label for="myonoffswitch34" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                    <div class="switch-toggle d-flex mt-2">
+                                        <span class="me-auto">Horizontal Click Menu</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch15" id="myonoffswitch35" class="onoffswitch2-checkbox">
+                                            <label for="myonoffswitch35" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                    <div class="switch-toggle d-flex mt-2">
+                                        <span class="me-auto">Horizontal Hover Menu</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch15" id="myonoffswitch111" class="onoffswitch2-checkbox">
+                                            <label for="myonoffswitch111" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swichermainleft">
+                            <h4>LTR and RTL VERSIONS</h4>
+                            <div class="skin-body">
+                                <div class="switch_section">
+                                    <div class="switch-toggle d-flex">
+                                        <span class="me-auto">LTR Version</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch7" id="myonoffswitch23" class="onoffswitch2-checkbox" checked>
+                                            <label for="myonoffswitch23" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                    <div class="switch-toggle d-flex mt-2">
+                                        <span class="me-auto">RTL Version</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch7" id="myonoffswitch24" class="onoffswitch2-checkbox">
+                                            <label for="myonoffswitch24" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swichermainleft">
+                            <h4>Light Theme Style</h4>
+                            <div class="skin-body">
+                                <div class="switch_section">
+                                    <div class="switch-toggle d-flex">
+                                        <span class="me-auto">Light Theme</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch1" id="myonoffswitch1" class="onoffswitch2-checkbox" checked>
+                                            <label for="myonoffswitch1" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                    <div class="switch-toggle d-flex">
+                                        <span class="me-auto">Light Primary</span>
+                                        <div class="">
+                                            <input class="w-30p h-30 input-color-picker color-primary-light" value="#6c5ffc" id="colorID" oninput="changePrimaryColor()" type="color" data-id="bg-color" data-id1="bg-hover" data-id2="bg-border" data-id7="transparentcolor" name="lightPrimary">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swichermainleft">
+                            <h4>Dark Theme Style</h4>
+                            <div class="skin-body">
+                                <div class="switch_section">
+                                    <div class="switch-toggle d-flex mt-2">
+                                        <span class="me-auto">Dark Theme</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch1" id="myonoffswitch2" class="onoffswitch2-checkbox">
+                                            <label for="myonoffswitch2" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                    <div class="switch-toggle d-flex mt-2">
+                                        <span class="me-auto">Dark Primary</span>
+                                        <div class="">
+                                            <input class="w-30p h-30 input-dark-color-picker color-primary-dark" value="#6c5ffc" id="darkPrimaryColorID" oninput="darkPrimaryColor()" type="color" data-id="bg-color" data-id1="bg-hover" data-id2="bg-border" data-id3="primary" data-id8="transparentcolor"
+                                                name="darkPrimary">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swichermainleft">
+                            <h4>Transparent Theme Style</h4>
+                            <div class="skin-body">
+                                <div class="switch_section">
+                                    <div class="switch-toggle d-flex mt-2">
+                                        <span class="me-auto">Transparent Theme</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch1" id="myonoffswitchTransparent" class="onoffswitch2-checkbox">
+                                            <label for="myonoffswitchTransparent" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                    <div class="switch-toggle d-flex mt-2">
+                                        <span class="me-auto">Transparent Primary</span>
+                                        <div class="">
+                                            <input class="w-30p h-30 input-transparent-color-picker color-primary-transparent" value="#6c5ffc" id="transparentPrimaryColorID" oninput="transparentPrimaryColor()" type="color" data-id="bg-color" data-id1="bg-hover" data-id2="bg-border" data-id3="primary"
+                                                data-id4="primary" data-id9="transparentcolor" name="tranparentPrimary">
+                                        </div>
+                                    </div>
+                                    <div class="switch-toggle d-flex mt-2">
+                                        <span class="me-auto">Transparent Background</span>
+                                        <div class="">
+                                            <input class="w-30p h-30 input-transparent-color-picker color-bg-transparent" value="#6c5ffc" id="transparentBgColorID" oninput="transparentBgColor()" type="color" data-id5="body" data-id6="theme" data-id9="transparentcolor" name="transparentBackground">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swichermainleft">
+                            <h4>Transparent Bg-Image Style</h4>
+                            <div class="skin-body switch_section">
+                                <div class="switch-toggle d-flex">
+                                    <span class="me-auto">Bg-Image Primary</span>
+                                    <div class="">
+                                        <input class="w-30p h-30 input-transparent-color-picker color-primary-transparent" value="#6c5ffc" id="transparentBgImgPrimaryColorID" oninput="transparentBgImgPrimaryColor()" type="color" data-id="bg-color" data-id1="bg-hover" data-id2="bg-border" data-id3="primary" data-id4="primary"  data-id9="transparentcolor" name="tranparentPrimary">
+                                    </div>
+                                </div>
+                                <div class="switch-toggle d-flex mt-2">
+                                    <a class="bg-img1" href="javascript:void(0);" onclick="bgImage(this)"><img src='{% static "assets/images/media/bg-img1.jpg" %}'  alt="Bg-Image" id="bgimage1"></a>
+                                    <a class="bg-img2" href="javascript:void(0);" onclick="bgImage(this)"><img src='{% static "assets/images/media/bg-img2.jpg" %}'  alt="Bg-Image"  id="bgimage2"></a>
+                                    <a class="bg-img3" href="javascript:void(0);" onclick="bgImage(this)"><img src='{% static "assets/images/media/bg-img3.jpg" %}'  alt="Bg-Image" id="bgimage3"></a>
+                                    <a class="bg-img4" href="javascript:void(0);" onclick="bgImage(this)"><img src='{% static "assets/images/media/bg-img4.jpg" %}'  alt="Bg-Image" id="bgimage4"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swichermainleft">
+                            <h4>Menu Styles</h4>
+                            <div class="skin-body">
+                                <div class="switch_section">
+                                    <div class="switch-toggle lightMenu d-flex">
+                                        <span class="me-auto">Light Menu</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch2" id="myonoffswitch3" class="onoffswitch2-checkbox" checked>
+                                            <label for="myonoffswitch3" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                    <div class="switch-toggle colorMenu d-flex mt-2">
+                                        <span class="me-auto">Color Menu</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch2" id="myonoffswitch4" class="onoffswitch2-checkbox">
+                                            <label for="myonoffswitch4" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                    <div class="switch-toggle darkMenu d-flex mt-2">
+                                        <span class="me-auto">Dark Menu</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch2" id="myonoffswitch5" class="onoffswitch2-checkbox">
+                                            <label for="myonoffswitch5" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                    <div class="switch-toggle gradientMenu d-flex mt-2">
+                                        <span class="me-auto">Gradient Menu</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch2" id="myonoffswitch19" class="onoffswitch2-checkbox">
+                                            <label for="myonoffswitch19" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swichermainleft">
+                            <h4>Header Styles</h4>
+                            <div class="skin-body">
+                                <div class="switch_section">
+                                    <div class="switch-toggle lightHeader d-flex">
+                                        <span class="me-auto">Light Header</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch3" id="myonoffswitch6" class="onoffswitch2-checkbox" checked>
+                                            <label for="myonoffswitch6" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                    <div class="switch-toggle  colorHeader d-flex mt-2">
+                                        <span class="me-auto">Color Header</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch3" id="myonoffswitch7" class="onoffswitch2-checkbox">
+                                            <label for="myonoffswitch7" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                    <div class="switch-toggle darkHeader d-flex mt-2">
+                                        <span class="me-auto">Dark Header</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch3" id="myonoffswitch8" class="onoffswitch2-checkbox">
+                                            <label for="myonoffswitch8" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+
+                                    <div class="switch-toggle darkHeader d-flex mt-2">
+                                        <span class="me-auto">Gradient Header</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch3" id="myonoffswitch20" class="onoffswitch2-checkbox">
+                                            <label for="myonoffswitch20" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swichermainleft">
+                            <h4>Layout Width Styles</h4>
+                            <div class="skin-body">
+                                <div class="switch_section">
+                                    <div class="switch-toggle d-flex">
+                                        <span class="me-auto">Full Width</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch4" id="myonoffswitch9" class="onoffswitch2-checkbox" checked>
+                                            <label for="myonoffswitch9" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                    <div class="switch-toggle d-flex mt-2">
+                                        <span class="me-auto">Boxed</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch4" id="myonoffswitch10" class="onoffswitch2-checkbox">
+                                            <label for="myonoffswitch10" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swichermainleft">
+                            <h4>Layout Positions</h4>
+                            <div class="skin-body">
+                                <div class="switch_section">
+                                    <div class="switch-toggle d-flex">
+                                        <span class="me-auto">Fixed</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch5" id="myonoffswitch11" class="onoffswitch2-checkbox" checked>
+                                            <label for="myonoffswitch11" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                    <div class="switch-toggle d-flex mt-2">
+                                        <span class="me-auto">Scrollable</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch5" id="myonoffswitch12" class="onoffswitch2-checkbox">
+                                            <label for="myonoffswitch12" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swichermainleft leftmenu-styles">
+                            <h4>Sidemenu layout Styles</h4>
+                            <div class="skin-body">
+                                <div class="switch_section">
+                                    <div class="switch-toggle d-flex">
+                                        <span class="me-auto">Default Menu</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch6" id="myonoffswitch13" class="onoffswitch2-checkbox default-menu" checked>
+                                            <label for="myonoffswitch13" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                    <div class="switch-toggle d-flex mt-2">
+                                        <span class="me-auto">Icon with Text</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch6" id="myonoffswitch14" class="onoffswitch2-checkbox">
+                                            <label for="myonoffswitch14" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                    <div class="switch-toggle d-flex mt-2">
+                                        <span class="me-auto">Icon Overlay</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch6" id="myonoffswitch15" class="onoffswitch2-checkbox">
+                                            <label for="myonoffswitch15" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                    <div class="switch-toggle d-flex mt-2">
+                                        <span class="me-auto">Closed Sidemenu</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch6" id="myonoffswitch16" class="onoffswitch2-checkbox">
+                                            <label for="myonoffswitch16" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                    <div class="switch-toggle d-flex mt-2">
+                                        <span class="me-auto">Hover Submenu</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch6" id="myonoffswitch17" class="onoffswitch2-checkbox">
+                                            <label for="myonoffswitch17" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                    <div class="switch-toggle d-flex mt-2">
+                                        <span class="me-auto">Hover Submenu Style 1</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch6" id="myonoffswitch18" class="onoffswitch2-checkbox">
+                                            <label for="myonoffswitch18" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swichermainleft">
+                            <h4>Reset All Styles</h4>
+                            <div class="skin-body">
+                                <div class="switch_section my-4">
+                                    <button class="btn btn-danger btn-block" onclick="localStorage.clear();
+										document.querySelector('html').style = '';
+										names() ;
+                                        resetData() ;" type="button">Reset All
+									</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Switcher -->
+
+    <!-- GLOBAL-LOADER -->
+    <div id="global-loader">
+        <img src='{% static "assets/images/loader.svg" %}' class="loader-img" alt="Loader">
+    </div>
+    <!-- /GLOBAL-LOADER -->
+
+    <!-- PAGE -->
+    <div class="page">
+        <div class="page-main">
+
+            <!--app-content open-->
+            <div class="main-content mt-0">
+                <div class="side-app">
+
+                    <!-- CONTAINER -->
+                    <div class="main-container container-fluid">
+
+                        <!-- PAGE-HEADER -->
+                        <div class="page-header">
+                            <h1 class="page-title">Advanced Queries</h1>
+
+                            <div>
+                                <ol class="breadcrumb">
+                                    <!-- <li class="breadcrumb-item"><a href="javascript:void(0)">Pages</a></li> -->
+                                    <li class="breadcrumb-item active" aria-current="page">Advanced Queries</li>
+                                </ol>
+                            </div>
+                        </div>
+                        <!-- PAGE-HEADER END -->
+
+                        <!-- Row -->
+                        <div class="row mb-4">
+
+                        </div>
+                        <!-- /Row -->
+
+                        <!-- Row -->
+                        <div class="row">
+                            <div class="col-xl-1 col-lg-12"></div>
+                            <div class="col-xl-10 col-lg-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Enter a query here</h3>
+                                    </div>
+                                    <div class="card-body pb-2">
+                                        <div class="row ">
+                                            <div class="col-lg-7">
+                                                <textarea class="form-control mb-4" id="displayTextarea" placeholder="Query" rows="4"></textarea>
+                                                </textarea>
+                                                <br>
+                                                <div class="btn-list">
+                                                    <a href="javascript:void(0)" class="btn btn-outline-default">+</a>
+                                                    <a href="javascript:void(0)" class="btn btn-outline-default">-</a>
+                                                    <a href="javascript:void(0)" class="btn btn-outline-default">/</a>
+                                                    <a href="javascript:void(0)" class="btn btn-outline-default">*</a>
+                                                    <a href="javascript:void(0)" class="btn btn-outline-default">></a>
+                                                    <a href="javascript:void(0)" class="btn btn-outline-default">&lt;</a>
+                                                    <a href="javascript:void(0)" class="btn btn-outline-default">=</a>
+                                                    <a href="javascript:void(0)" class="btn btn-outline-default"> AND </a>
+                                                    <a href="javascript:void(0)" class="btn btn-outline-default"> OR </a>
+                                                </div>
+                                                <br>
+                                                <div class="">
+                                                    <a href="javascript:void(0)" class="btn btn-primary" id="submitBtn">Submit Query</a>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-5 ">
+                                                <div class="panel-group1" id="accordion1">
+                                                    <div class="panel panel-default mb-4">
+                                                        <div class="panel-heading1 ">
+                                                            <h4 class="panel-title1">
+                                                                <a class="accordion-toggle collapsed" data-bs-toggle="collapse" data-bs-parent="#accordion" href="#collapseFour" aria-expanded="false">Descriptive</a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-expanded="false">
+                                                            <div class="panel-body">
+                                                                <div class="panel-body btn-list">
+                                                                    <a href="javascript:void(0)" class="btn btn-outline-default">RSI</a>
+                                                                    <a href="javascript:void(0)" class="btn btn-outline-default">Macd</a>
+                                                                    <a href="javascript:void(0)" class="btn btn-outline-default">EMA</a>
+                                                                    <a href="javascript:void(0)" class="btn btn-outline-default">SMA</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel panel-default mb-4">
+                                                        <div class="panel-heading1">
+                                                            <h4 class="panel-title1">
+                                                                <a class="accordion-toggle collapsed" data-bs-toggle="collapse" data-bs-parent="#accordion" href="#collapseFive" aria-expanded="false">Fundamental</a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-expanded="false">
+                                                            <div class="panel-body">
+                                                                <div class="panel-body btn-list">
+                                                                    <a href="javascript:void(0)" class="btn btn-outline-default">PE Ratio</a>
+                                                                    <a href="javascript:void(0)" class="btn btn-outline-default">PB Ratio</a>
+                                                                    <a href="javascript:void(0)" class="btn btn-outline-default">Market Cap</a>
+                                                                    <a href="javascript:void(0)" class="btn btn-outline-default">Dividend Yield</a>
+                                                                    <a href="javascript:void(0)" class="btn btn-outline-default">Book Value</a>
+                                                                    <a href="javascript:void(0)" class="btn btn-outline-default">EPS</a>
+                                                                    <a href="javascript:void(0)" class="btn btn-outline-default">ROE</a>
+                                                                    <a href="javascript:void(0)" class="btn btn-outline-default">Industry PE</a>
+                                                                    <a href="javascript:void(0)" class="btn btn-outline-default">Face Value</a>
+                                                                    <a href="javascript:void(0)" class="btn btn-outline-default">Return On Assets</a>
+                                                                    <a href="javascript:void(0)" class="btn btn-outline-default">Operating Profit Margin</a>
+                                                                    <a href="javascript:void(0)" class="btn btn-outline-default">Net Profit Margin</a>
+                                                                    <a href="javascript:void(0)" class="btn btn-outline-default">EV To Sales</a>
+                                                                    <a href="javascript:void(0)" class="btn btn-outline-default">EV To EBIDTA</a>
+                                                                    <a href="javascript:void(0)" class="btn btn-outline-default">Earnings Yield</a>
+                                                                    <a href="javascript:void(0)" class="btn btn-outline-default">Sector Dividend Yield</a>
+                                                                    <a href="javascript:void(0)" class="btn btn-outline-default">Sector ROE</a>
+                                                                    <a href="javascript:void(0)" class="btn btn-outline-default">Sector ROCE</a>
+                                                                    <a href="javascript:void(0)" class="btn btn-outline-default">Price To OCF</a>
+                                                                    <a href="javascript:void(0)" class="btn btn-outline-default">Price To FCF</a>
+                                                                    <a href="javascript:void(0)" class="btn btn-outline-default">ROIC</a>
+                                                                    <a href="javascript:void(0)" class="btn btn-outline-default">PE Premium Vs Sector</a>
+                                                                    <a href="javascript:void(0)" class="btn btn-outline-default">PB Premium Vs Sector</a>
+                                                                    <a href="javascript:void(0)" class="btn btn-outline-default">Dividend Yield Vs Sector</a>
+                                                                    <a href="javascript:void(0)" class="btn btn-outline-default">Sector PE</a>
+                                                                    <a href="javascript:void(0)" class="btn btn-outline-default">Price To Sales</a>
+                                                                    <a href="javascript:void(0)" class="btn btn-outline-default">PEG Ratio</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel panel-default mb-4">
+                                                        <div class="panel-heading1">
+                                                            <h4 class="panel-title1">
+                                                                <a class="accordion-toggle collapsed" data-bs-toggle="collapse" data-bs-parent="#accordion" href="#collapseSix" aria-expanded="false">Technical</a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-expanded="false">
+                                                            <div class="panel-body btn-list">
+                                                                <a href="javascript:void(0)" class="btn btn-outline-default">RSI</a>
+                                                                <a href="javascript:void(0)" class="btn btn-outline-default">Macd</a>
+                                                                <a href="javascript:void(0)" class="btn btn-outline-default">EMA</a>
+                                                                <a href="javascript:void(0)" class="btn btn-outline-default">SMA</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-1 col-lg-12"></div>
+                        </div>
+                        <!-- End Row -->
+
+                        
+                        <div class="row row-sm">
+                            <div class="col-xl-1 col-lg-12"></div>
+                            <div class="col-lg-10">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Data</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive" id="table-div">
+                                            <table id="file-datatable" class="table table-bordered text-nowrap key-buttons border-bottom">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="border-bottom-0">Company</th>
+                                                        <th class="border-bottom-0">Ticker</th>
+                                                        <th class="border-bottom-0">Market Cap</th>
+                                                        <th class="border-bottom-0">PB Ratio</th>
+                                                        <th class="border-bottom-0">PE Ratio</th>
+                                                        <th class="border-bottom-0">Dividend Yield</th>
+                                                        <th class="border-bottom-0">EPS</th>
+                                                        <th class="border-bottom-0">ROE</th>
+                                                        <th class="border-bottom-0">Industry PE</th>
+                                                        <th class="border-bottom-0">Face Value</th>
+                                                        <th class="border-bottom-0">Return on Assets</th>
+                                                        <th class="border-bottom-0">Operating Profit Margin</th>
+                                                        <th class="border-bottom-0">Net Profit Margin</th>
+                                                        <th class="border-bottom-0">EV to Sales</th>
+                                                        <th class="border-bottom-0">EV to EBITDA</th>
+                                                        <th class="border-bottom-0">Earnings Yield</th>
+                                                        <th class="border-bottom-0">Sector PB</th>
+                                                        <th class="border-bottom-0">Sector Dividend Yield</th>
+                                                        <th class="border-bottom-0">Sector ROE</th>
+                                                        <th class="border-bottom-0">Sector ROCE</th>
+                                                        <th class="border-bottom-0">Price to OCF</th>
+                                                        <th class="border-bottom-0">Price to FCF</th>
+                                                        <th class="border-bottom-0">ROIC</th>
+                                                        <th class="border-bottom-0">PE Premium Vs Sector</th>
+                                                        <th class="border-bottom-0">PB Premium Vs Sector</th>
+                                                        <th class="border-bottom-0">Dividend Yield Vs Sector</th>
+                                                        <th class="border-bottom-0">Sector PE</th>
+                                                        <th class="border-bottom-0">Price To Sales</th>
+                                                        <th class="border-bottom-0">PEG Ratio</th>
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% for s in stocks %}
+                                                        <tr>
+                                                            <td>{{s.Company}}</td>
+                                                            <td>{{s.Ticker}}</td>
+                                                            <td>{{s.MarketCap}}</td>
+                                                            <td>{{s.PBRatio}}</td>
+                                                            <td>{{s.PERatio}}</td>
+                                                            <td>{{s.DividendYield}}</td>
+                                                            <td>{{s.EPS}}</td>
+                                                            <td>{{s.ROE}}</td>
+                                                            <td>{{s.IndustryPE}}</td>
+                                                            <td>{{s.FaceValue}}</td>
+                                                            <td>{{s.ReturnOnAssets}}</td>
+                                                            <td>{{s.OperatingProfitMargin}}</td>
+                                                            <td>{{s.NetProfitMargin}}</td>
+                                                            <td>{{s.EVToSales}}</td>
+                                                            <td>{{s.EVToEBITDA}}</td>
+                                                            <td>{{s.EarningsYield}}</td>
+                                                            <td>{{s.SectorPB}}</td>
+                                                            <td>{{s.SectorDividendYield}}</td>
+                                                            <td>{{s.SectorROE}}</td>
+                                                            <td>{{s.SectorROCE}}</td>
+                                                            <td>{{s.PricetoOCF}}</td>
+                                                            <td>{{s.PricetoFCF}}</td>
+                                                            <td>{{s.ROIC}}</td>
+                                                            <td>{{s.PEPremiumVsSector}}</td>
+                                                            <td>{{s.PBPremiumVsSector}}</td>
+                                                            <td>{{s.DividendYieldVsSector}}</td>
+                                                            <td>{{s.SectorPE}}</td>
+                                                            <td>{{s.PriceToSales}}</td>
+                                                            <td>{{s.PEGRatio}}</td>
+                                                        </tr>    
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-1 col-lg-12"></div>
+                        </div>
+                        
+                        
+
+                    </div>
+                    <!-- CONTAINER CLOSED -->
+                </div>
+            </div>
+            <!--app-content closed-->
+        </div>
+
+        <!-- Sidebar-right -->
+        <div class="sidebar sidebar-right sidebar-animate">
+            <div class="panel panel-primary card mb-0 shadow-none border-0">
+                <div class="tab-menu-heading border-0 d-flex p-3">
+                    <div class="card-title mb-0"><i class="fe fe-bell me-2"></i><span class=" pulse"></span>Notifications</div>
+                    <div class="card-options ms-auto">
+                        <a href="javascript:void(0);" class="sidebar-icon text-end float-end me-3 mb-1" data-bs-toggle="sidebar-right" data-target=".sidebar-right"><i class="fe fe-x text-white"></i></a>
+                    </div>
+                </div>
+                <div class="panel-body tabs-menu-body latest-tasks p-0 border-0">
+                    <div class="tabs-menu border-bottom">
+                        <!-- Tabs -->
+                        <ul class="nav panel-tabs">
+                            <li class=""><a href="#side1" class="active" data-bs-toggle="tab"><i class="fe fe-settings me-1"></i>Feeds</a></li>
+                            <li><a href="#side2" data-bs-toggle="tab"><i class="fe fe-message-circle"></i> Chat</a></li>
+                            <li><a href="#side3" data-bs-toggle="tab"><i class="fe fe-anchor me-1"></i>Timeline</a></li>
+                        </ul>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="side1">
+                            <div class="p-3 fw-semibold ps-5">Feeds</div>
+                            <div class="card-body pt-2">
+                                <div class="browser-stats">
+                                    <div class="row mb-4">
+                                        <div class="col-sm-2 mb-sm-0 mb-3">
+                                            <span class="feeds avatar-circle brround bg-primary-transparent"><i class="fe fe-user text-primary"></i></span>
+                                        </div>
+                                        <div class="col-sm-10 ps-sm-0">
+                                            <div class="d-flex align-items-end justify-content-between ms-2">
+                                                <h6 class="">New user registered</h6>
+                                                <div>
+                                                    <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                                                    <a href="javascript:void(0)"><i class="fe fe-x"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <div class="col-sm-2 mb-sm-0 mb-3">
+                                            <span class="feeds avatar-circle avatar-circle-secondary brround bg-secondary-transparent"><i class="fe fe-shopping-cart text-secondary"></i></span>
+                                        </div>
+                                        <div class="col-sm-10 ps-sm-0">
+                                            <div class="d-flex align-items-end justify-content-between ms-2">
+                                                <h6 class="">New order delivered</h6>
+                                                <div>
+                                                    <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                                                    <a href="javascript:void(0)"><i class="fe fe-x"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <div class="col-sm-2 mb-sm-0 mb-3">
+                                            <span class="feeds avatar-circle avatar-circle-danger brround bg-danger-transparent"><i class="fe fe-bell text-danger"></i></span>
+                                        </div>
+                                        <div class="col-sm-10 ps-sm-0">
+                                            <div class="d-flex align-items-end justify-content-between ms-2">
+                                                <h6 class="">You have pending tasks</h6>
+                                                <div>
+                                                    <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                                                    <a href="javascript:void(0)"><i class="fe fe-x"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <div class="col-sm-2 mb-sm-0 mb-3">
+                                            <span class="feeds avatar-circle avatar-circle-warning brround bg-warning-transparent"><i class="fe fe-gitlab text-warning"></i></span>
+                                        </div>
+                                        <div class="col-sm-10 ps-sm-0">
+                                            <div class="d-flex align-items-end justify-content-between ms-2">
+                                                <h6 class="">New version arrived</h6>
+                                                <div>
+                                                    <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                                                    <a href="javascript:void(0)"><i class="fe fe-x"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <div class="col-sm-2 mb-sm-0 mb-3">
+                                            <span class="feeds avatar-circle avatar-circle-pink brround bg-pink-transparent"><i class="fe fe-database text-pink"></i></span>
+                                        </div>
+                                        <div class="col-sm-10 ps-sm-0">
+                                            <div class="d-flex align-items-end justify-content-between ms-2">
+                                                <h6 class="">Server #1 overloaded</h6>
+                                                <div>
+                                                    <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                                                    <a href="javascript:void(0)"><i class="fe fe-x"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-2 mb-sm-0 mb-3">
+                                            <span class="feeds avatar-circle avatar-circle-info brround bg-info-transparent"><i class="fe fe-check-circle text-info"></i></span>
+                                        </div>
+                                        <div class="col-sm-10 ps-sm-0">
+                                            <div class="d-flex align-items-end justify-content-between ms-2">
+                                                <h6 class="">New project launched</h6>
+                                                <div>
+                                                    <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                                                    <a href="javascript:void(0)"><i class="fe fe-x"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-3 fw-semibold ps-5">Settings</div>
+                            <div class="card-body pt-2">
+                                <div class="browser-stats">
+                                    <div class="row mb-4">
+                                        <div class="col-sm-2 mb-sm-0 mb-3">
+                                            <span class="feeds avatar-circle brround bg-primary-transparent"><i class="fe fe-settings text-primary"></i></span>
+                                        </div>
+                                        <div class="col-sm-10 ps-sm-0">
+                                            <div class="d-flex align-items-end justify-content-between ms-2">
+                                                <h6 class="">General Settings</h6>
+                                                <div>
+                                                    <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <div class="col-sm-2 mb-sm-0 mb-3">
+                                            <span class="feeds avatar-circle avatar-circle-secondary brround bg-secondary-transparent"><i class="fe fe-map-pin text-secondary"></i></span>
+                                        </div>
+                                        <div class="col-sm-10 ps-sm-0">
+                                            <div class="d-flex align-items-end justify-content-between ms-2">
+                                                <h6 class="">Map Settings</h6>
+                                                <div>
+                                                    <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <div class="col-sm-2 mb-sm-0 mb-3">
+                                            <span class="feeds avatar-circle avatar-circle-danger brround bg-danger-transparent"><i class="fe fe-headphones text-danger"></i></span>
+                                        </div>
+                                        <div class="col-sm-10 ps-sm-0">
+                                            <div class="d-flex align-items-end justify-content-between ms-2">
+                                                <h6 class="">Support Settings</h6>
+                                                <div>
+                                                    <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <div class="col-sm-2 mb-sm-0 mb-3">
+                                            <span class="feeds avatar-circle avatar-circle-warning brround bg-warning-transparent"><i class="fe fe-credit-card text-warning"></i></span>
+                                        </div>
+                                        <div class="col-sm-10 ps-sm-0">
+                                            <div class="d-flex align-items-end justify-content-between ms-2">
+                                                <h6 class="">Payment Settings</h6>
+                                                <div>
+                                                    <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <div class="col-sm-2 mb-sm-0 mb-3">
+                                            <span class="feeds avatar-circle avatar-circle-pink brround bg-pink-transparent"><i class="fe fe-bell text-pink"></i></span>
+                                        </div>
+                                        <div class="col-sm-10 ps-sm-0">
+                                            <div class="d-flex align-items-end justify-content-between ms-2">
+                                                <h6 class="">Notification Settings</h6>
+                                                <div>
+                                                    <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="side2">
+                            <div class="list-group list-group-flush">
+                                <div class="pt-3 fw-semibold ps-5">Today</div>
+                                <div class="list-group-item d-flex align-items-center">
+                                    <div class="me-2">
+                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src='{% static "assets/images/users/2.jpg" %}'></span>
+                                    </div>
+                                    <div class="">
+                                        <a href="chat.html">
+                                            <div class="fw-semibold text-dark">Addie Minstra</div>
+                                            <p class="mb-0 fs-12 text-muted"> Hey! there I' am available.... </p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="list-group-item d-flex align-items-center">
+                                    <div class="me-2">
+                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src='{% static "assets/images/users/11.jpg" %}'><span class="avatar-status bg-success"></span></span>
+                                    </div>
+                                    <div class="">
+                                        <a href="chat.html">
+                                            <div class="fw-semibold text-dark">Rose Bush</div>
+                                            <p class="mb-0 fs-12 text-muted"> Okay...I will be waiting for you </p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="list-group-item d-flex align-items-center">
+                                    <div class="me-2">
+                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src='{% static "assets/images/users/10.jpg" %}'></span>
+                                    </div>
+                                    <div class="">
+                                        <a href="chat.html">
+                                            <div class="fw-semibold text-dark">Claude Strophobia</div>
+                                            <p class="mb-0 fs-12 text-muted"> Hi we can explain our new project...... </p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="list-group-item d-flex align-items-center">
+                                    <div class="me-2">
+                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src='{% static "assets/images/users/13.jpg" %}'></span>
+                                    </div>
+                                    <div class="">
+                                        <a href="chat.html">
+                                            <div class="fw-semibold text-dark">Eileen Dover</div>
+                                            <p class="mb-0 fs-12 text-muted"> New product Launching... </p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="list-group-item d-flex align-items-center">
+                                    <div class="me-2">
+                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src='{% static "assets/images/users/12.jpg" %}'><span class="avatar-status bg-success"></span></span>
+                                    </div>
+                                    <div class="">
+                                        <a href="chat.html">
+                                            <div class="fw-semibold text-dark">Willie Findit</div>
+                                            <p class="mb-0 fs-12 text-muted"> Okay...I will be waiting for you </p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="list-group-item d-flex align-items-center">
+                                    <div class="me-2">
+                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src='{% static "assets/images/users/15.jpg" %}'></span>
+                                    </div>
+                                    <div class="">
+                                        <a href="chat.html">
+                                            <div class="fw-semibold text-dark">Manny Jah</div>
+                                            <p class="mb-0 fs-12 text-muted"> Hi we can explain our new project...... </p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="list-group-item d-flex align-items-center">
+                                    <div class="me-2">
+                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src='{% static "assets/images/users/4.jpg" %}'></span>
+                                    </div>
+                                    <div class="">
+                                        <a href="chat.html">
+                                            <div class="fw-semibold text-dark">Cherry Blossom</div>
+                                            <p class="mb-0 fs-12 text-muted"> Hey! there I' am available....</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="pt-3 fw-semibold ps-5">Yesterday</div>
+                                <div class="list-group-item d-flex align-items-center">
+                                    <div class="me-2">
+                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src='{% static "assets/images/users/7.jpg" %}'><span class="avatar-status bg-success"></span></span>
+                                    </div>
+                                    <div class="">
+                                        <a href="chat.html">
+                                            <div class="fw-semibold text-dark">Simon Sais</div>
+                                            <p class="mb-0 fs-12 text-muted">Schedule Realease...... </p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="list-group-item d-flex align-items-center">
+                                    <div class="me-2">
+                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src='{% static "assets/images/users/9.jpg" %}'></span>
+                                    </div>
+                                    <div class="">
+                                        <a href="chat.html">
+                                            <div class="fw-semibold text-dark">Laura Biding</div>
+                                            <p class="mb-0 fs-12 text-muted"> Hi we can explain our new project...... </p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="list-group-item d-flex align-items-center">
+                                    <div class="me-2">
+                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src='{% static "assets/images/users/2.jpg" %}'><span class="avatar-status bg-success"></span></span>
+                                    </div>
+                                    <div class="">
+                                        <a href="chat.html">
+                                            <div class="fw-semibold text-dark">Addie Minstra</div>
+                                            <p class="mb-0 fs-12 text-muted">Contact me for details....</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="list-group-item d-flex align-items-center">
+                                    <div class="me-2">
+                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src='{% static "assets/images/users/9.jpg" %}'></span>
+                                    </div>
+                                    <div class="">
+                                        <a href="chat.html">
+                                            <div class="fw-semibold text-dark">Ivan Notheridiya</div>
+                                            <p class="mb-0 fs-12 text-muted"> Hi we can explain our new project...... </p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="list-group-item d-flex align-items-center">
+                                    <div class="me-2">
+                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src='{% static "assets/images/users/14.jpg" %}'></span>
+                                    </div>
+                                    <div class="">
+                                        <a href="chat.html">
+                                            <div class="fw-semibold text-dark">Dulcie Veeta</div>
+                                            <p class="mb-0 fs-12 text-muted"> Okay...I will be waiting for you </p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="list-group-item d-flex align-items-center">
+                                    <div class="me-2">
+                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src='{% static "assets/images/users/11.jpg" %}'></span>
+                                    </div>
+                                    <div class="">
+                                        <a href="chat.html">
+                                            <div class="fw-semibold text-dark">Florinda Carasco</div>
+                                            <p class="mb-0 fs-12 text-muted">New product Launching...</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="list-group-item d-flex align-items-center">
+                                    <div class="me-2">
+                                        <span class="avatar avatar-md brround cover-image" data-bs-image-src='{% static "assets/images/users/4.jpg" %}'><span class="avatar-status bg-success"></span></span>
+                                    </div>
+                                    <div class="">
+                                        <a href="chat.html">
+                                            <div class="fw-semibold text-dark">Cherry Blossom</div>
+                                            <p class="mb-0 fs-12 text-muted">cherryblossom@gmail.com</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="side3">
+                            <ul class="task-list timeline-task">
+                                <li class="d-sm-flex mt-4">
+                                    <div>
+                                        <i class="task-icon1"></i>
+                                        <h6 class="fw-semibold">Task Finished<span class="text-muted fs-11 mx-2 fw-normal">09 July 2021</span></h6>
+                                        <p class="text-muted fs-12">Adam Berry finished task on<a href="javascript:void(0)" class="fw-semibold"> Project Management</a></p>
+                                    </div>
+                                    <div class="ms-auto d-md-flex me-3">
+                                        <a href="javascript:void(0)" class="text-muted me-2"><span class="fe fe-edit"></span></a>
+                                        <a href="javascript:void(0)" class="text-muted"><span class="fe fe-trash-2"></span></a>
+                                    </div>
+                                </li>
+                                <li class="d-sm-flex">
+                                    <div>
+                                        <i class="task-icon1"></i>
+                                        <h6 class="fw-semibold">New Comment<span class="text-muted fs-11 mx-2 fw-normal">05 July 2021</span></h6>
+                                        <p class="text-muted fs-12">Victoria commented on Project <a href="javascript:void(0)" class="fw-semibold"> AngularJS Template</a></p>
+                                    </div>
+                                    <div class="ms-auto d-md-flex me-3">
+                                        <a href="javascript:void(0)" class="text-muted me-2"><span class="fe fe-edit"></span></a>
+                                        <a href="javascript:void(0)" class="text-muted"><span class="fe fe-trash-2"></span></a>
+                                    </div>
+                                </li>
+                                <li class="d-sm-flex">
+                                    <div>
+                                        <i class="task-icon1"></i>
+                                        <h6 class="fw-semibold">New Comment<span class="text-muted fs-11 mx-2 fw-normal">25 June 2021</span></h6>
+                                        <p class="text-muted fs-12">Victoria commented on Project <a href="javascript:void(0)" class="fw-semibold"> AngularJS Template</a></p>
+                                    </div>
+                                    <div class="ms-auto d-md-flex me-3">
+                                        <a href="javascript:void(0)" class="text-muted me-2"><span class="fe fe-edit"></span></a>
+                                        <a href="javascript:void(0)" class="text-muted"><span class="fe fe-trash-2"></span></a>
+                                    </div>
+                                </li>
+                                <li class="d-sm-flex">
+                                    <div>
+                                        <i class="task-icon1"></i>
+                                        <h6 class="fw-semibold">Task Overdue<span class="text-muted fs-11 mx-2 fw-normal">14 June 2021</span></h6>
+                                        <p class="text-muted mb-0 fs-12">Petey Cruiser finished task <a href="javascript:void(0)" class="fw-semibold"> Integrated management</a></p>
+                                    </div>
+                                    <div class="ms-auto d-md-flex me-3">
+                                        <a href="javascript:void(0)" class="text-muted me-2"><span class="fe fe-edit"></span></a>
+                                        <a href="javascript:void(0)" class="text-muted"><span class="fe fe-trash-2"></span></a>
+                                    </div>
+                                </li>
+                                <li class="d-sm-flex">
+                                    <div>
+                                        <i class="task-icon1"></i>
+                                        <h6 class="fw-semibold">Task Overdue<span class="text-muted fs-11 mx-2 fw-normal">29 June 2021</span></h6>
+                                        <p class="text-muted mb-0 fs-12">Petey Cruiser finished task <a href="javascript:void(0)" class="fw-semibold"> Integrated management</a></p>
+                                    </div>
+                                    <div class="ms-auto d-md-flex me-3">
+                                        <a href="javascript:void(0)" class="text-muted me-2"><span class="fe fe-edit"></span></a>
+                                        <a href="javascript:void(0)" class="text-muted"><span class="fe fe-trash-2"></span></a>
+                                    </div>
+                                </li>
+                                <li class="d-sm-flex">
+                                    <div>
+                                        <i class="task-icon1"></i>
+                                        <h6 class="fw-semibold">Task Finished<span class="text-muted fs-11 mx-2 fw-normal">09 July 2021</span></h6>
+                                        <p class="text-muted fs-12">Adam Berry finished task on<a href="javascript:void(0)" class="fw-semibold"> Project Management</a></p>
+                                    </div>
+                                    <div class="ms-auto d-md-flex me-3">
+                                        <a href="javascript:void(0)" class="text-muted me-2"><span class="fe fe-edit"></span></a>
+                                        <a href="javascript:void(0)" class="text-muted"><span class="fe fe-trash-2"></span></a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/Sidebar-right-->
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row align-items-center flex-row-reverse">
+                    <div class="col-md-12 col-sm-12 text-center">
+                        Copyright © <span id="year"></span> <a href="javascript:void(0)">Sash</a>. Designed with <span class="fa fa-heart text-danger"></span> by <a href="javascript:void(0)"> Spruko </a> All rights reserved.
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- FOOTER CLOSED -->
+    </div>
+
+    <!-- BACK-TO-TOP -->
+    <a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+    <!-- JQUERY JS -->
+    <script src='{% static "assets/js/jquery.min.js" %}'></script>
+
+    <!-- BOOTSTRAP JS -->
+    <script src='{% static "assets/plugins/bootstrap/js/popper.min.js" %}'></script>
+    <script src='{% static "assets/plugins/bootstrap/js/bootstrap.min.js" %}'></script>
+
+    <!-- SIDE-MENU JS -->
+    <script src='{% static "assets/plugins/sidemenu/sidemenu.js" %}'></script>
+
+	<!-- TypeHead js -->
+	<script src='{% static "assets/plugins/bootstrap5-typehead/autocomplete.js" %}'></script>
+    <script src='{% static "assets/js/typehead.js" %}'></script>
+
+    <!-- SIDEBAR JS -->
+    <script src='{% static "assets/plugins/sidebar/sidebar.js" %}'></script>
+
+    <!-- Perfect SCROLLBAR JS-->
+    <script src='{% static "assets/plugins/p-scroll/perfect-scrollbar.js" %}'></script>
+    <script src='{% static "assets/plugins/p-scroll/pscroll.js" %}'></script>
+    <script src='{% static "assets/plugins/p-scroll/pscroll-1.js" %}'></script>
+
+    <!-- Color Theme js -->
+    <script src='{% static "assets/js/themeColors.js" %}'></script>
+
+    <!-- Sticky js -->
+    <script src='{% static "assets/js/sticky.js" %}'></script>
+
+    <!-- CUSTOM JS -->
+    <script src='{% static "assets/js/custom1.js" %}'></script>
+
+    <!-- Switcher js -->
+    <script src='{% static "assets/switcher/js/switcher.js" %}'></script>
+
+    <!-- Scripts -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.0/dist/jquery.slim.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" ></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js" ></script>
+
+    <!-- DATA TABLE JS-->
+     <script src="{% static 'assets/plugins/datatable/js/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/datatable/js/dataTables.bootstrap5.js' %}"></script>
+    <script src="{% static 'assets/plugins/datatable/js/dataTables.buttons.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/datatable/js/buttons.bootstrap5.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/datatable/js/jszip.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/datatable/pdfmake/pdfmake.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/datatable/pdfmake/vfs_fonts.js' %}"></script>
+    <script src="{% static 'assets/plugins/datatable/js/buttons.html5.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/datatable/js/buttons.print.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/datatable/js/buttons.colVis.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/datatable/dataTables.responsive.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/datatable/responsive.bootstrap5.min.js' %}"></script>
+    {% comment %} <script src="{% static 'assets/js/table-data.js' %}"></script> {% endcomment %}
+
+    <script>
+
+        var table = $('#file-datatable').DataTable({
+            lengthChange: false,
+            buttons: ['excel', 'colvis'],
+            language: {
+                searchPlaceholder: 'Search...',
+                scrollX: "100%",
+                sSearch: '',
+            }
+        });
+        table.buttons().container()
+            .appendTo('#file-datatable_wrapper .col-md-6:eq(0)');
+    
+    </script>
+
+    <script>
+        var counterTable = 1
+        // Get all buttons
+        const buttons = document.querySelectorAll('.btn-list .btn');
+
+        // Get the textarea
+        const textarea = document.getElementById('displayTextarea');
+
+        // Add click event listener to each button
+        buttons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Append the button value to the textarea value
+                textarea.value += button.textContent;
+            });
+        });
+
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            // Get the query text
+            const query = textarea.value.trim();
+
+            // Validate if the query is empty
+            if (!query) {
+                alert('Query cannot be empty.');
+                return;
+            }
+
+            let queries = query.split(/\b(AND|OR)\b/);
+            temp = []
+            console.log('---------->')
+
+            for (let i = 0; i < queries.length; i += 2) {
+                var splittedQueries = queries[i].split(/([\+\-\*\/><=])/);
+
+                // Validate each splitted query
+                for (let j = 0; j < splittedQueries.length; j++) {
+                    let strippedQuery = splittedQueries[j].trim();
+                }
+                temp.push(splittedQueries)
+                temp.push(queries[i+1])
+            }
+            console.log(temp);
+            temp.pop();
+            var parameters = ['id', 'Company', 'Ticker', 'MarketCap', 'PBRatio', 'PERatio', 'DividendYield', 'EPS', 'ROE', 'IndustryPE', 'FaceValue', 'ReturnOnAssets', 'OperatingProfitMargin', 'NetProfitMargin', 'EVToSales', 'EVToEBITDA', 'EarningsYield', 'SectorPB', 'SectorDividendYield', 'SectorROE', 'SectorROCE', 'PriceToOCF', 'PriceToFCF', 'ROIC', 'PEPremiumVsSector', 'PBPremiumVsSector', 'DividendYieldVsSector', 'SectorPE', 'PriceToSales', 'PEGRatio']
+            let operators = ['>', '<', '+', '-', '*', '/', '='];
+
+            /*console.log(splittedQueries)
+            let continuousString = splittedQueries.map(item => {
+                if (Array.isArray(item)) {
+                    // Filter out empty string elements and then join
+                    return item.filter(Boolean).join(' ');
+                } else {
+                    return item.toString();
+                }
+            }).join(' ');
+
+            console.log(continuousString);
+            if (/[\+\-\>\<\=\*\/]{2,}/.test(continuousString)) {
+                alert("Consecutive operators found!");
+                return
+            }
+            if (/(?:and.*or)|(?:or.*and)/i.test(continuousString)) {
+                alert("Simultaneous 'and' and 'or' found!");
+                return
+            }*/
+
+            for (let i = 0; i < splittedQueries.length; i++) {
+                if (typeof splittedQueries[i] === 'string') {
+                } else {
+                    let innerList = splittedQueries[i];
+                    for (let j = 0; j < innerList.length; j++) {
+                        let t = innerList[j].replace(/\s/g, '');
+                        try {
+                            let floatValue = parseFloat(t);
+                        } catch (error) {
+                            if (operators.includes(t)) {
+                            } else {
+                                if (parameters.includes(t)) {
+                                } else {
+                                    alert("Invalid parameter name. Please choose it from the given list.")
+                                    return;
+                                }
+                            }
+                        }
+                    }
+                    let string = innerList.join(' ');
+                }
+            }
+
+
+            data = {
+                'csrfmiddlewaretoken': '{{ csrf_token }}',
+                'query': query,
+                'splittedQueries': JSON.stringify(temp)
+            }
+
+            $.ajax ({
+                method : "POST",
+                data: data,
+                url : `/advance-filter`,
+
+                success: function(response) {
+                    r = response;
+                    console.log(r);
+                    if (r.msgType == "error") {
+                        alert("The query could not be processed. Please add a valid parameter name.")
+                    } else {
+                        console.log(r.msg[0])
+                        data = JSON.parse(r.msg)
+                        console.log(data)
+                        newObj = []
+                        data.forEach(item => {
+                            // Delete the 'model' and 'pk' fields
+                            newObj.push(item.fields);
+                            delete item.model;
+                            delete item.pk;
+                        });
+                        console.log(newObj);
+                        
+                        let tableBody = document.querySelector('#file-datatable tbody');
+                        tableBody.innerHTML = '';
+                        
+                        newObj.forEach(data => {
+                            var row = tableBody.insertRow();
+                            count = 0
+                            for (let key in data) {
+                                let cell = row.insertCell(count++);
+                                cell.innerHTML = data[key];
+                            }
+                        });
+                            
+                        table = `
+                            <table id="file-datatable${counterTable}" class="table table-bordered text-nowrap key-buttons border-bottom">
+                                <thead>
+                                    <tr>
+                                        <th class="border-bottom-0">Company</th>
+                                        <th class="border-bottom-0">Ticker</th>
+                                        <th class="border-bottom-0">Market Cap</th>
+                                        <th class="border-bottom-0">PB Ratio</th>
+                                        <th class="border-bottom-0">PE Ratio</th>
+                                        <th class="border-bottom-0">Dividend Yield</th>
+                                        <th class="border-bottom-0">EPS</th>
+                                        <th class="border-bottom-0">ROE</th>
+                                        <th class="border-bottom-0">Industry PE</th>
+                                        <th class="border-bottom-0">Face Value</th>
+                                        <th class="border-bottom-0">Return on Assets</th>
+                                        <th class="border-bottom-0">Operating Profit Margin</th>
+                                        <th class="border-bottom-0">Net Profit Margin</th>
+                                        <th class="border-bottom-0">EV to Sales</th>
+                                        <th class="border-bottom-0">EV to EBITDA</th>
+                                        <th class="border-bottom-0">Earnings Yield</th>
+                                        <th class="border-bottom-0">Sector PB</th>
+                                        <th class="border-bottom-0">Sector Dividend Yield</th>
+                                        <th class="border-bottom-0">Sector ROE</th>
+                                        <th class="border-bottom-0">Sector ROCE</th>
+                                        <th class="border-bottom-0">Price to OCF</th>
+                                        <th class="border-bottom-0">Price to FCF</th>
+                                        <th class="border-bottom-0">ROIC</th>
+                                        <th class="border-bottom-0">PE Premium Vs Sector</th>
+                                        <th class="border-bottom-0">PB Premium Vs Sector</th>
+                                        <th class="border-bottom-0">Dividend Yield Vs Sector</th>
+                                        <th class="border-bottom-0">Sector PE</th>
+                                        <th class="border-bottom-0">Price To Sales</th>
+                                        <th class="border-bottom-0">PEG Ratio</th>
+                                    </tr>
+                                </thead>
+                                <tbody>`
+                            
+                        newObj.forEach(data => {
+                            tempRow = `<tr>`;
+                            for (let key in data) {
+                                tempRow += `<td>${data[key]}</td>`;
+                            }
+                            tempRow += '</tr>';
+                            table += tempRow;
+                        });
+                            
+                                    
+                        table += `
+                            </tbody>
+                        </table>
+                        `
+
+                        $('#table-div').html(table);
+                        var table = $(`#file-datatable${counterTable}`).DataTable({
+                            lengthChange: false,
+                            buttons: ['excel', 'colvis'],
+                            language: {
+                                searchPlaceholder: 'Search...',
+                                scrollX: "100%",
+                                sSearch: '',
+                            }
+                        });
+                        table.buttons().container()
+                            .appendTo(`#file-datatable${counterTable}_wrapper .col-md-6:eq(0)`);
+                        console.log('weyhdgivbfjsrdv')
+                        //var myTable = $('#file-datatable').DataTable().clear().rows.add(newObj).draw();
+                        counterTable++;
+                    }
+                }
+            });
+
+            console.log('Valid Query:', strippedQuery);
+        });
+    </script>
+
+    {% comment %} if (r.message == "success") {
+        $(el).parents("tr").remove()
+    };
+    if (r.count = "0") {
+        console.log("if")
+        window.onbeforeunload = function() {
+            $('#entriesTableAlerts').html(`
+                <div class="alert alert-danger mb-4" role="alert">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
+                    In order to prevent system malfunction, please save the changes before leaving the page.
+                </div>
+            `)
+            return 'You have unsaved changes!';
+        }
+    } {% endcomment %}
+
+
+</body>
+
+</html>
